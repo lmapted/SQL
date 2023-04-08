@@ -1,0 +1,8 @@
+create table BOOK_STORE (id integer, title text, quantity integer, genre text, pages integer, price numeric);
+insert into book_store values (1, "Black Beauty", 3, "Fiction", 323, 32.30);
+insert into book_store values (2, "101 Dalmations", 9, "Fiction", 111, 40.55);
+insert into book_store values (3, "The Little Mermaid", 2, "Fiction", 244, 60.99);
+insert into book_store values (4, "The Glass Castle", 17, "Non-Fiction", 401, 19.99);
+insert into book_store values (5, "Maid", 22, "Fiction", 304, 32.00);
+insert into book_store values (6, "The Help", 48, "Ficition", 523, 17.99);
+insert into book_store values (7, "Verity", 33, "Fiction", 258, 24.99);
