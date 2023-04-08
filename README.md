@@ -1,3 +1,3 @@
 # Lisa Apted's SQL Portfolio
-## Welcome to my SQL Portfolio! Please have a look around at my examples of SQL that I have written.  
+## Welcome to my SQL Portfolio! This is my collection of SQL examples.
 ## Contact me at LisaApted@gmail.com
