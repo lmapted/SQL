@@ -100,3 +100,4 @@ Select title, release_year
 From "netflix_titles_info" 
 Where type = 'Movie'
 Order by release_year asc;
+
