@@ -1,0 +1,58 @@
+--In this SQL, I'm querying a database with multiple tables in it to quantify statistics about customer and order data. 
+
+-- How many orders were placed in January? 
+
+SELECT COUNT(orderid)
+FROM BIT_DB.JanSales
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID'
+
+-- How many of those orders were for an iPhone?
+
+Select Count(Product)
+From BIT_DB.JanSales
+Where orderID <> 'Order ID'
+AND length (orderID) = 6
+And Product = 'iPhone'
+
+-- Select the customer account numbers for all the orders that were placed in February.
+
+Select customers.acctnum
+From BIT_DB.customers customers
+Inner Left Join BIT_DB.FebSales Feb
+On customers.order_id = Feb.orderID
+Where orderID <> 'Order ID'
+AND length (orderID) = 6
+
+-- Which product was the cheapest one sold in January, and what was the price?
+
+Select distinct Product, price
+From BIT_DB.JanSales
+Where orderID <> 'Order ID'
+AND length (orderID) = 6
+Order by price ASC
+Limit 1
+
+-- What is the total revenue for each product sold in January? (Revenue can be calculated using the number of products sold and the price of the products).
+
+SELECT sum(quantity)*price as Revenue, product
+FROM BIT_DB.JanSales
+GROUP BY product
+Order By Revenue ASC
+
+-- Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
+
+SELECT product, sum(quantity)*price as Revenue, location
+FROM BIT_DB.FebSales
+Where location like "548 Lincoln St%"
+
+
+-- How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?
+
+Select Count(distinct customers.acctnum), avg(quantity*price) as Average_Spent
+From BIT_DB.customers customers
+Left Join BIT_DB.FebSales Feb
+On customers.order_id = Feb.orderID
+Where Feb.orderID <> 'Order ID'
+AND length (orderID) = 6
+And Feb.quantity > 2
