@@ -1,3 +1,5 @@
+-- This project utilized data from the Netflix database stored at http://sqlfiddle.com/#!17/7dae0/16/0 --
+
 -- How many movie titles are there in the database? (movies only, not tv shows) --
 
 Select Count(*)
